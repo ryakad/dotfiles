@@ -18,8 +18,5 @@ config_files=(
 for file in ${config_files[@]}; do
     if [ -e $file ]; then
         source $file
-        echo "Loaded File: $file"
-    else
-        echo "Error Loading: $file"
     fi
 done
