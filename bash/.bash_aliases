@@ -6,8 +6,8 @@
 # author: Ryan Kadwell <ryan@riaka.ca>
 
 # ls
-alias la='ls -la';
-alias ll='ll -l';
+alias la='ls -lah';
+alias ll='ls -lh';
 
 # PHP-CS-Fixer
 alias cs-fixer='~/Projects/PHP-CS-Fixer/php-cs-fixer';
