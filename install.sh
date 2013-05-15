@@ -23,7 +23,6 @@ for file in ${bash_files[@]}; do
     # backup existing files
     if [ -e "$HOME/$file" ]; then
         cp "$HOME/$file" "$backup_dir/$file.$(date +%Y-%m-%d).$$"
-
     fi
 
     cp "./bash/$file" "$HOME/$file"
