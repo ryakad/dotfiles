@@ -6,12 +6,12 @@
 # author: Ryan Kadwell <ryan@riaka.ca>
 
 # ls
-alias la='ls -lah';
-alias ll='ls -lh';
+alias la='ls -lah'
+alias l='ls -lh'
 
 # PHP-CS-Fixer
-alias cs-fixer='~/Projects/PHP-CS-Fixer/php-cs-fixer';
-alias fix='~/Projects/PHP-CS-Fixer/php-cs-fixer fix';
+alias cs-fixer='~/Projects/PHP-CS-Fixer/php-cs-fixer'
+alias fix='~/Projects/PHP-CS-Fixer/php-cs-fixer fix'
 
 # cd
 alias ..='cd ..'
@@ -44,4 +44,4 @@ alias gl='git log'
 alias gl1='git log --pretty="oneline"'
 
 # mysql
-alias ml='mysql';
+alias ml='mysql'
