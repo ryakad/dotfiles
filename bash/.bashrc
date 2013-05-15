@@ -5,7 +5,6 @@
 #
 # author: Ryan Kadwell <ryan@riaka.ca>
 
-
 export CDPATH=".:~:~/Projects"
 export PS1='\h:\W \$ '
 export PS2='→ '
