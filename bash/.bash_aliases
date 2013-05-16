@@ -13,6 +13,9 @@ alias l='ls -lh'
 alias cs-fixer='~/Projects/PHP-CS-Fixer/php-cs-fixer'
 alias fix='~/Projects/PHP-CS-Fixer/php-cs-fixer fix'
 
+alias o='open'
+alias .='echo $PWD' # sometimes knowing the current folder is not enough
+
 # cd
 alias ..='cd ..'
 alias ...='cd ../..'
