@@ -46,5 +46,13 @@ alias grm='git rebase origin/master'
 alias gl='git log'
 alias gl1='git log --pretty="oneline"'
 
+# svn aliases
+alias s='svn status'
+alias sd='svn diff'
+alias sb='svn blame'
+alias sa='svn add'
+alias sc='svn commit'
+alias sm='svn merge'
+
 # mysql
 alias ml='mysql'
