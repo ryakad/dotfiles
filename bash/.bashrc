@@ -8,6 +8,11 @@
 export CDPATH=".:$HOME:$HOME/Projects"
 export PS1='\h:\W \$ '
 export PS2='→ '
+export BACKUP_DIR="$HOME/.backups"
+
+if [ ! -e $BACKUP_DIR ]; then
+    mkdir -p "$BACKUP_DIR"
+fi
 
 config_files=(
     "$HOME/.bash_aliases"
