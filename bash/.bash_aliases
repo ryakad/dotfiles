@@ -9,7 +9,8 @@
 alias la='ls -lah'
 alias l='ls -lh'
 
-# PHP-CS-Fixer
+# PHP Aliases
+alias composer='composer --ansi'
 alias cs-fixer='~/Projects/PHP-CS-Fixer/php-cs-fixer'
 alias fix='~/Projects/PHP-CS-Fixer/php-cs-fixer fix'
 
