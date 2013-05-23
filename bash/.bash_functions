@@ -13,6 +13,6 @@
 #
 function wl()
 {
-    logfile="$HOME/.worklogs/$(ls $HOME/worklogs | sort -r | head -n1)"
+    logfile="$HOME/.worklogs/$(ls $HOME/.worklogs | sort -r | head -n1)"
     echo -e "\nCurrent Log File: $logfile\n\n$(cat $logfile)\n"
 }
