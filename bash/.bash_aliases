@@ -25,8 +25,9 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 # OSX application aliases
-alias sequel='open /Applications/Sequel\ Pro.app'
-alias chrome='open /Applications/Google\ Chrome.app'
+alias sequel='open -a Sequel\ Pro'
+alias chrome='open -a Google\ Chrome'
+alias stree='open -a SourceTree'
 
 # git aliases
 alias g='git status'
