@@ -5,7 +5,6 @@
 #
 # author: Ryan Kadwell <ryan@riaka.ca>
 
-export CDPATH=".:$HOME:$HOME/Projects"
 export PS1='\h:\W \$ '
 export PS2='→ '
 export BACKUP_DIR="$HOME/.backups"
@@ -17,6 +16,7 @@ fi
 config_files=(
     "$HOME/.bash_aliases"
     "$HOME/.bash_functions"
+    "$HOME/.bash_private" # machine specific customizations.
 )
 
 for file in ${config_files[@]}; do

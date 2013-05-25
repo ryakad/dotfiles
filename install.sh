@@ -27,3 +27,5 @@ for file in ${bash_files[@]}; do
 
     cp "./bash/$file" "$HOME/$file"
 done
+
+source $HOME/.bashrc
