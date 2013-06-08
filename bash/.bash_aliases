@@ -59,3 +59,4 @@ alias sm='svn merge'
 
 # mysql
 alias ml='mysql'
+alias py='python'
