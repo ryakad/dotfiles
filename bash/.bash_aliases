@@ -17,6 +17,8 @@ alias fix='~/Projects/PHP-CS-Fixer/php-cs-fixer fix'
 alias o='open'
 alias wai='echo $PWD' # "where am I?"
 
+alias r="R CMD BATCH"
+
 # cd
 alias ..='cd ..'
 alias ...='cd ../..'
