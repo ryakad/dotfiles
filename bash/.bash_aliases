@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 # My Bash Aliases
 #
 # For the full copyright and license information, please view the LICENSE
