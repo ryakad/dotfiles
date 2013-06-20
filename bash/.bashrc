@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 # My Bash Initialization File
 #
 # For the full copyright and license information, please view the LICENSE

@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 # My Bash Aliases
 #
 # For the full copyright and license information, please view the LICENSE
@@ -16,6 +18,8 @@ alias fix='~/Projects/PHP-CS-Fixer/php-cs-fixer fix'
 
 alias o='open'
 alias wai='echo $PWD' # "where am I?"
+
+alias r="R CMD BATCH"
 
 # cd
 alias ..='cd ..'
@@ -59,3 +63,4 @@ alias sm='svn merge'
 
 # mysql
 alias ml='mysql'
+alias py='python'

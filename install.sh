@@ -16,7 +16,7 @@ bash_files=(
 )
 
 if [ ! -d $backup_dir ]; then
-    mkdir $backup_dir
+    mkdir "$backup_dir"
 fi
 
 for file in ${bash_files[@]}; do
@@ -28,4 +28,4 @@ for file in ${bash_files[@]}; do
     cp "./bash/$file" "$HOME/$file"
 done
 
-source $HOME/.bashrc
+source "$HOME/.bashrc"
