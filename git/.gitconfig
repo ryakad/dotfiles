@@ -1,0 +1,7 @@
+[user]
+	email = ryan@riaka.ca
+	name = Ryan Kadwell
+[core]
+	editor = emacs -nw
+[color]
+	ui = true
