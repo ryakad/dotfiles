@@ -9,23 +9,59 @@
 
 backup_dir="$HOME/.dotfile_backup"
 
-bash_files=(
-    ".bashrc"
-    ".bash_functions"
-    ".bash_aliases"
-)
-
 if [ ! -d $backup_dir ]; then
     mkdir "$backup_dir"
 fi
 
-for file in ${bash_files[@]}; do
-    # backup existing files
+function say_and_do()
+{
+    echo "$1"
+    eval "$1"
+}
+
+# copy bash files
+for file in $(ls -a ./bash); do
+    if [ "$file" == ".." ] || [ "$file" == "." ]; then
+        continue
+    fi
+
     if [ -e "$HOME/$file" ]; then
         cp "$HOME/$file" "$backup_dir/$file.$(date +%Y-%m-%d).$$"
     fi
 
-    cp "./bash/$file" "$HOME/$file"
+    say_and_do "cp ./bash/$file $HOME/$file"
 done
 
-source "$HOME/.bashrc"
+# copy git files
+if [ -e "$HOME/.gitconfig" ]; then
+    cp "$HOME/.gitconfig" "$backup_dir/.gitconfig.$(date +%Y-$m-$d).$$"
+fi
+
+say_and_do "cp ./git/.gitconfig $HOME/.gitconfig"
+
+# For installing sublime config files need to go in different locations
+# depending on operating system.
+linux_sublime_conf="$HOME/.config/sublime-text-3/Packages/User"
+mac_sublime_conf="$HOME/???"
+
+if [ -d "$linux_sublime_conf" ]; then
+    sublime_conf="$linux_sublime_conf"
+elif [ -d "$mac_sublime_conf" ]; then
+    sublime_conf="$mac_sublime_conf"
+else:
+    echo "Can not find sublime\'s user package."
+fi
+
+if [ ! -z "$sublime_conf" ]; then
+    for file in $(ls -a ./sublime); do
+        if [ $file == "." ] || [ $file == ".." ]; then
+            continue
+        fi
+
+        if [ -e "$sublime_conf/$file" ]; then
+            cp "$sublime_conf/$file" "$backup_dir/$file.$(date +%Y-%m-%d).$$"
+        fi
+
+        say_and_do "cp ./sublime/$file $sublime_conf/$file"
+    done
+fi

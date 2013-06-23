@@ -8,7 +8,6 @@
 # author: Ryan Kadwell <ryan@riaka.ca>
 
 export PS1='\h:\W \$ '
-export PS2='→ '
 export BACKUP_DIR="$HOME/.backups"
 
 if [ ! -e $BACKUP_DIR ]; then
