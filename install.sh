@@ -13,37 +13,41 @@ if [ ! -d $backup_dir ]; then
     mkdir "$backup_dir"
 fi
 
+# provide some information about what we are doing
+#
+# $1 - The command we want to execute
+#
 function say_and_do()
 {
     echo "$1"
     eval "$1"
 }
 
-# copy bash files
-for file in $(ls -a ./bash); do
-    if [ "$file" == ".." ] || [ "$file" == "." ]; then
-        continue
-    fi
+# Moves a collection of files into another location.
+#
+# $1 - The directory where the files currently are in this repo
+# $2 - The directory where the files are going
+#
+function move_files()
+{
+    source_dir="$1"
+    target_dir="$2"
+    for file in $(ls -a "$source_dir"); do
+        if [ "$file" == ".." ] || [ "$file" == "." ]; then
+            continue
+        fi
 
-    if [ -e "$HOME/$file" ]; then
-        cp "$HOME/$file" "$backup_dir/$file.$(date +%Y-%m-%d).$$"
-    fi
+        if [ -e "$target_dir/$file" ]; then
+            cp "$target_dir/$file" "$backup_dir/$file.$(date +%Y-%m-%d).$$"
+        fi
 
-    say_and_do "cp ./bash/$file $HOME/$file"
-done
+        say_and_do "cp \"$source_dir/$file\" \"$target_dir/$file\""
+    done
+}
 
-# copy git files
-for file in $(ls -a ./git); do
-    if [ "$file" == ".." ] || [ "$file" == "." ]; then
-        continue
-    fi
+move_files "./bash" "$HOME"
 
-    if [ -e "$HOME/$file" ]; then
-        cp "$HOME/$file" "$backup_dir/$file.$(date +%Y-$m-$d).$$"
-    fi
-
-    say_and_do "cp ./git/$file $HOME/$file"
-done
+move_files "./git" "$HOME"
 
 # For installing sublime config files need to go in different locations
 # depending on operating system.
@@ -59,15 +63,5 @@ else
 fi
 
 if [ ! -z "$sublime_conf" ]; then
-    for file in $(ls -a ./sublime); do
-        if [ $file == "." ] || [ $file == ".." ]; then
-            continue
-        fi
-
-        if [ -e "$sublime_conf/$file" ]; then
-            cp "$sublime_conf/$file" "$backup_dir/$file.$(date +%Y-%m-%d).$$"
-        fi
-
-        say_and_do "cp \"./sublime/$file\" \"$sublime_conf/$file\""
-    done
+    move_files "./sublime" "$sublime_conf"
 fi
