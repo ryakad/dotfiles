@@ -42,7 +42,7 @@ say_and_do "cp ./git/.gitconfig $HOME/.gitconfig"
 # For installing sublime config files need to go in different locations
 # depending on operating system.
 linux_sublime_conf="$HOME/.config/sublime-text-3/Packages/User"
-mac_sublime_conf="$HOME/???"
+mac_sublime_conf="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 
 if [ -d "$linux_sublime_conf" ]; then
     sublime_conf="$linux_sublime_conf"
@@ -62,6 +62,6 @@ if [ ! -z "$sublime_conf" ]; then
             cp "$sublime_conf/$file" "$backup_dir/$file.$(date +%Y-%m-%d).$$"
         fi
 
-        say_and_do "cp ./sublime/$file $sublime_conf/$file"
+        say_and_do "cp \"./sublime/$file\" \"$sublime_conf/$file\""
     done
 fi
