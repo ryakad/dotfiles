@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 # Installation file for Dotfiles
 #
 # For the full copyright and license information, please view the LICENSE
@@ -13,7 +14,7 @@ if [ ! -d $backup_dir ]; then
     mkdir "$backup_dir"
 fi
 
-# provide some information about what we are doing
+# Provide some information about what we are doing
 #
 # $1 - The command we want to execute
 #
@@ -46,7 +47,6 @@ function move_files()
 }
 
 move_files "./bash" "$HOME"
-
 move_files "./git" "$HOME"
 
 # For installing sublime config files need to go in different locations
