@@ -33,11 +33,17 @@ for file in $(ls -a ./bash); do
 done
 
 # copy git files
-if [ -e "$HOME/.gitconfig" ]; then
-    cp "$HOME/.gitconfig" "$backup_dir/.gitconfig.$(date +%Y-$m-$d).$$"
-fi
+for file in $(ls -a ./git); do
+    if [ "$file" == ".." ] || [ "$file" == "." ]; then
+        continue
+    fi
 
-say_and_do "cp ./git/.gitconfig $HOME/.gitconfig"
+    if [ -e "$HOME/$file" ]; then
+        cp "$HOME/$file" "$backup_dir/$file.$(date +%Y-$m-$d).$$"
+    fi
+
+    say_and_do "cp ./git/$file $HOME/$file"
+done
 
 # For installing sublime config files need to go in different locations
 # depending on operating system.
@@ -48,7 +54,7 @@ if [ -d "$linux_sublime_conf" ]; then
     sublime_conf="$linux_sublime_conf"
 elif [ -d "$mac_sublime_conf" ]; then
     sublime_conf="$mac_sublime_conf"
-else:
+else
     echo "Can not find sublime\'s user package."
 fi
 

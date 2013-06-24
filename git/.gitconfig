@@ -5,3 +5,5 @@
 	editor = emacs -nw
 [color]
 	ui = true
+[core]
+    excludesfile = ~/.gitignore-global
