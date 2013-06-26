@@ -14,16 +14,6 @@ if [ ! -d $backup_dir ]; then
     mkdir "$backup_dir"
 fi
 
-# Provide some information about what we are doing
-#
-# $1 - The command we want to execute
-#
-function say_and_do()
-{
-    echo "$1"
-    eval "$1"
-}
-
 # Moves a collection of files into another location.
 #
 # $1 - The directory where the files currently are in this repo
@@ -42,7 +32,8 @@ function move_files()
             cp "$target_dir/$file" "$backup_dir/$file.$(date +%Y-%m-%d).$$"
         fi
 
-        say_and_do "cp \"$source_dir/$file\" \"$target_dir/$file\""
+        echo "Installing \"$target_dir/$file\""
+        cp "$source_dir/$file" "$target_dir/$file"
     done
 }
 
