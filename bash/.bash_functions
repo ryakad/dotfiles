@@ -8,6 +8,12 @@
 # author: Ryan Kadwell <ryan@riaka.ca>
 
 
+# get the current work log.
+function cwl()
+{
+    echo "$HOME/.worklogs/$(ls $HOME/.worklogs | sort -r | head -n1)"
+}
+
 # cat the logfile that we are currently writing to
 #
 # $1 - display latest $1 lines
@@ -20,12 +26,6 @@ function wl()
     else
         echo "$(cat $logfile | tail -n${1})"
     fi
-}
-
-# get the current work log.
-function cwl()
-{
-    echo "$HOME/.worklogs/$(ls $HOME/.worklogs | sort -r | head -n1)"
 }
 
 # Make a new directory and enter it
