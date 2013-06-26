@@ -7,7 +7,6 @@
 #
 # author: Ryan Kadwell <ryan@riaka.ca>
 
-export PS1='\h:\W \$ '
 export BACKUP_DIR="$HOME/.backups"
 
 if [ ! -e $BACKUP_DIR ]; then
@@ -17,6 +16,7 @@ fi
 config_files=(
     "$HOME/.bash_aliases"
     "$HOME/.bash_functions"
+    "$HOME/.bash_prompt"
     "$HOME/.bash_private" # machine specific customizations.
 )
 
