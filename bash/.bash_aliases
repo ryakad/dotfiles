@@ -8,8 +8,8 @@
 # author: Ryan Kadwell <ryan@riaka.ca>
 
 # ls
-alias la='ls -lah'
-alias l='ls -lh'
+alias la='ls -lahG'
+alias l='ls -lhG'
 
 # PHP Aliases
 alias composer='composer --ansi'
