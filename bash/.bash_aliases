@@ -62,5 +62,8 @@ alias sc='svn commit'
 alias sm='svn merge'
 
 # mysql
+# For Reference: mysql_config_editor set --host=locahost --user=... --password
 alias ml='mysql'
+alias mle='mysql -e'
+
 alias py='python'
