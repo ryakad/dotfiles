@@ -8,8 +8,8 @@
 # author: Ryan Kadwell <ryan@riaka.ca>
 
 # ls
-alias la='ls -lah'
-alias l='ls -lh'
+alias la='ls -lahG'
+alias l='ls -lhG'
 
 # PHP Aliases
 alias composer='composer --ansi'
@@ -62,5 +62,8 @@ alias sc='svn commit'
 alias sm='svn merge'
 
 # mysql
+# For Reference: mysql_config_editor set --host=locahost --user=... --password
 alias ml='mysql'
+alias mle='mysql -e'
+
 alias py='python'
