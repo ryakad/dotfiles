@@ -10,6 +10,11 @@
 # ls
 alias la='ls -lahG'
 alias l='ls -lhG'
+alias l1='ls -1'
+
+if [ $(uname) = "Linux" ]; then
+  alias ls="ls --color=auto"
+fi
 
 # PHP Aliases
 alias composer='composer --ansi'
@@ -20,6 +25,8 @@ alias o='open'
 alias wai='echo $PWD' # "where am I?"
 
 alias r="R CMD BATCH"
+
+alias _="sudo"
 
 # cd
 alias ..='cd ..'
