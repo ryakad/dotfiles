@@ -10,7 +10,7 @@
 
 backup_dir="$HOME/.dotfile_backup"
 
-if [ ! -d $backup_dir ]; then
+if [ ! -d "$backup_dir" ]; then
     mkdir "$backup_dir"
 fi
 
