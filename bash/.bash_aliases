@@ -16,6 +16,8 @@ if [ $(uname) = "Linux" ]; then
   alias ls="ls --color=auto"
 fi
 
+alias hist="history"
+
 # PHP Aliases
 alias composer='composer --ansi'
 alias cs-fixer='~/Projects/PHP-CS-Fixer/php-cs-fixer'

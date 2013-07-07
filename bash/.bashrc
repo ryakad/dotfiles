@@ -25,3 +25,9 @@ for file in ${config_files[@]}; do
         source $file
     fi
 done
+
+# bash history customization
+shopt -s histappend
+# export HISTTIMEFORMAT='%F %T '
+export HISTCONTROL="ignoreboth:erasedups"
+export HISTSIZE=5000
