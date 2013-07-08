@@ -23,11 +23,11 @@ alias composer='composer --ansi'
 alias cs-fixer='~/Projects/PHP-CS-Fixer/php-cs-fixer'
 alias fix='~/Projects/PHP-CS-Fixer/php-cs-fixer fix'
 
-alias o='open'
-
 alias r="R CMD BATCH"
 
+alias o='open'
 alias _="sudo"
+alias rm="rm -v"
 
 # cd
 alias ..='cd ..'
