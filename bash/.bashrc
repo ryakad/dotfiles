@@ -30,4 +30,5 @@ done
 shopt -s histappend
 # export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL="ignoreboth:erasedups"
+export HISTIGNORE="l:la:l1:clear:pwd:hist:history"
 export HISTSIZE=5000
