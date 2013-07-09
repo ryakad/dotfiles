@@ -13,7 +13,7 @@ alias l='ls -lhG'
 alias l1='ls -1'
 
 if [ $(uname) = "Linux" ]; then
-  alias ls="ls --color=auto"
+    alias ls="ls --color=auto"
 fi
 
 alias hist="history"
