@@ -35,6 +35,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
+alias -- -="cd -"
 
 # OSX application aliases
 alias sequel='open -a Sequel\ Pro'
