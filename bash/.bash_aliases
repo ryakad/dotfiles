@@ -16,6 +16,8 @@ if [ $(uname) = "Linux" ]; then
     alias ls="ls --color=auto"
 fi
 
+alias k="clear"
+
 alias hist="history"
 
 # PHP Aliases
