@@ -37,6 +37,12 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias -- -="cd -"
 
+# Tree
+if [ ! -x "$(which tree 2>/dev/null)" ]
+then
+  alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+fi
+
 # OSX application aliases
 alias sequel='open -a Sequel\ Pro'
 alias chrome='open -a Google\ Chrome'
