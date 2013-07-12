@@ -43,9 +43,8 @@ alias id="ino deploy"
 alias r="R CMD BATCH"
 
 # tree
-if [ ! -x "$(which tree 2>/dev/null)" ]
-then
-  alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+if [ ! -x "$(which tree 2>/dev/null)" ]; then
+    alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi
 
 # osx application aliases
