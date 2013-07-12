@@ -35,6 +35,10 @@ alias composer='composer --ansi'
 alias cs-fixer='~/Projects/PHP-CS-Fixer/php-cs-fixer'
 alias fix='~/Projects/PHP-CS-Fixer/php-cs-fixer fix'
 
+# arduino ino aliases
+alias ib="ino build"
+alias id="ino deploy"
+
 # r aliases
 alias r="R CMD BATCH"
 
