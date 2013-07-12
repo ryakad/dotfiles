@@ -7,7 +7,13 @@
 #
 # author: Ryan Kadwell <ryan@riaka.ca>
 
-# ls
+alias _="sudo"
+alias hist="history"
+alias k="clear"
+alias o='open'
+alias rm="rm -v"
+
+# ls aliases
 alias la='ls -lahG'
 alias l='ls -lhG'
 alias l1='ls -1'
@@ -16,71 +22,65 @@ if [ $(uname) = "Linux" ]; then
     alias ls="ls --color=auto"
 fi
 
-alias k="clear"
-
-alias hist="history"
-
-# PHP Aliases
-alias composer='composer --ansi'
-alias cs-fixer='~/Projects/PHP-CS-Fixer/php-cs-fixer'
-alias fix='~/Projects/PHP-CS-Fixer/php-cs-fixer fix'
-
-alias r="R CMD BATCH"
-
-alias o='open'
-alias _="sudo"
-alias rm="rm -v"
-
 # cd
+alias -- -="cd -"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias -- -="cd -"
 
-# Tree
+# php aliases
+alias composer='composer --ansi'
+alias cs-fixer='~/Projects/PHP-CS-Fixer/php-cs-fixer'
+alias fix='~/Projects/PHP-CS-Fixer/php-cs-fixer fix'
+
+# r aliases
+alias r="R CMD BATCH"
+
+# tree
 if [ ! -x "$(which tree 2>/dev/null)" ]
 then
   alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi
 
-# OSX application aliases
+# osx application aliases
 alias sequel='open -a Sequel\ Pro'
 alias chrome='open -a Google\ Chrome'
 alias stree='open -a SourceTree'
 
 # git aliases
 alias g='git status'
-alias gc='git commit'
-alias gcm='git commit -m'
-alias gca='git commit -am'
 alias ga='git add'
 alias gaa='git add .'
-alias gap='git add -p'
 alias gai='git add -i'
+alias gap='git add -p'
+alias gc='git commit'
+alias gca='git commit -am'
+alias gcm='git commit -m'
 alias gd='git diff'
 alias gdd='git diff --cached'
 alias gf='git fetch'
-alias gp='git push'
-alias gpo='git push -u origin'
+alias gl1='git log --pretty="oneline"'
+alias gl='git log'
 alias gm='git checkout master'
 alias gmm='git merge origin/master'
+alias gp='git push'
+alias gpo='git push -u origin'
 alias grm='git rebase origin/master'
-alias gl='git log'
-alias gl1='git log --pretty="oneline"'
 
 # svn aliases
 alias s='svn status'
-alias sd='svn diff'
-alias sb='svn blame'
 alias sa='svn add'
+alias sb='svn blame'
 alias sc='svn commit'
+alias sd='svn diff'
 alias sm='svn merge'
 
-# mysql
+# mysql aliases
 # For Reference: mysql_config_editor set --host=locahost --user=... --password
 alias ml='mysql'
 alias mle='mysql -e'
 
+# python aliases
 alias py='python'
