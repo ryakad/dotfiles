@@ -12,6 +12,7 @@ alias hist="history"
 alias k="clear"
 alias o='open'
 alias rm="rm -v"
+alias x="tar -xzvf"
 
 # ls aliases
 alias la='ls -lahG'
