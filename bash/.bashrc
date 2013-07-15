@@ -16,7 +16,6 @@ fi
 config_files=(
     "$HOME/.bash_aliases"
     "$HOME/.bash_functions"
-    "$HOME/.bash_prompt"
     "$HOME/.bash_private" # machine specific customizations.
 )
 
@@ -26,8 +25,13 @@ for file in ${config_files[@]}; do
     fi
 done
 
+# setup custom prompt.
+prompt_file="$HOME/.bash_prompt"
+tty -s && [ -e "$prompt_file" ] && source "$prompt_file"
+
 # bash history customization
 shopt -s histappend
+
 # export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL="ignoreboth:erasedups"
 export HISTIGNORE="l:la:l1:g:gaa:gc:clear:k:pwd:hist:history"
