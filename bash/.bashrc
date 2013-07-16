@@ -16,6 +16,7 @@ fi
 config_files=(
     "$HOME/.bash_aliases"
     "$HOME/.bash_functions"
+    "$HOME/.bash_completions"
     "$HOME/.bash_private" # machine specific customizations.
 )
 

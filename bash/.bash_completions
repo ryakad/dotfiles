@@ -7,11 +7,13 @@
 #
 # author: Ryan Kadwell <ryan@riaka.ca>
 
-# Simple database completion that can be used for script that take a database
-# name on the command line
+
+# Simple mysql database name completion that can be used for script that
+# take a database name on the command line
 #
 # Usage:
 #   complete -F _mysql_database_complete [command_name]
+#
 function _mysql_database_complete()
 {
     COMPREPLY=($(mysql -NBe "SHOW DATABASES;" | grep "^${COMP_WORDS[COMP_CWORD]}"));
