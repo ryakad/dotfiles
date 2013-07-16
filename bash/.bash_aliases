@@ -35,6 +35,7 @@ alias ......='cd ../../../../..'
 alias composer='composer --ansi'
 alias cs-fixer='~/Projects/PHP-CS-Fixer/php-cs-fixer'
 alias fix='~/Projects/PHP-CS-Fixer/php-cs-fixer fix'
+alias symf="php app/console"
 
 # arduino ino aliases
 alias ib="ino build"
@@ -42,6 +43,7 @@ alias id="ino deploy"
 
 # r aliases
 alias r="R CMD BATCH"
+
 
 # tree
 if [ ! -x "$(which tree 2>/dev/null)" ]; then

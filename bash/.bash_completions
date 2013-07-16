@@ -16,6 +16,28 @@
 #
 function _mysql_database_complete()
 {
-    COMPREPLY=($(mysql -NBe "SHOW DATABASES;" | grep "^${COMP_WORDS[COMP_CWORD]}"));
+    COMPREPLY=($(mysql -NBe "SHOW DATABASES;" | grep "^${COMP_WORDS[COMP_CWORD]}"))
     return 0
 }
+
+# Simple function for terminal completion for symfony commands.
+#
+# TODO:
+#   - Find a better method for getting a list of commands.
+#   - Add better argument support.
+#
+# Usage:
+#   complete -F _symfony_complete [command_name]
+#
+function _symfony_complete()
+{
+    # Makes a couple assumptions. We assume that the symf alias is setup to
+    # run the symfony console. We next assume that all command lines begin
+    # with some spaces and that the only line we dont want begins with a [.
+    COMPREPLY=($(symf | grep "^  " | grep -v "^  \[" | cut -d " " -f3 | grep "^${COMP_WORDS[COMP_CWORD]}"))
+    # Remove colon from word break characters.
+    COMP_WORDBREAKS=${COMP_WORDBREAKS//:}
+    return 0
+}
+
+complete -F _symfony_complete symf
