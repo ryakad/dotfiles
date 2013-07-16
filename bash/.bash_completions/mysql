@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# My Bash Aliases
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# author: Ryan Kadwell <ryan@riaka.ca>
+
+# Simple database completion that can be used for script that take a database
+# name on the command line
+#
+# Usage:
+#   complete -F _mysql_database_complete [command_name]
+function _mysql_database_complete()
+{
+    COMPREPLY=($(mysql -NBe "SHOW DATABASES;" | grep "^${COMP_WORDS[COMP_CWORD]}"));
+    return 0
+}
