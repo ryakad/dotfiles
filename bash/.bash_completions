@@ -41,3 +41,5 @@ function _symfony_complete()
 }
 
 complete -F _symfony_complete symf
+
+complete -F _mysql_database_complete mlcols

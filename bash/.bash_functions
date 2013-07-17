@@ -55,3 +55,17 @@ function json()
         python -mjson.tool | pygmentize -l javascript
     fi
 }
+
+# Finds a given field in a given database. Omitting the second field will
+# list all columns in the database with a grep ""
+#
+# $1 - The database you want to list columns for.
+#
+function mlcols()
+{
+    database="$1"
+    select_stmt="SELECT CONCAT(TABLE_NAME, '.', COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='$database';"
+    for column in $(mysql -NBe "$select_stmt"); do
+        echo $column
+    done
+}
