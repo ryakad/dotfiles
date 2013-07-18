@@ -20,6 +20,9 @@ function _mysql_database_complete()
     return 0
 }
 
+complete -F _mysql_database_complete mlcols
+complete -F _mysql_database_complete -o default reimport
+
 # Simple function for terminal completion for symfony commands.
 #
 # TODO:
@@ -41,6 +44,3 @@ function _symfony_complete()
 }
 
 complete -F _symfony_complete symf
-
-complete -F _mysql_database_complete mlcols
-complete -F _mysql_database_complete -o default reimport
