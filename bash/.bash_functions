@@ -69,3 +69,40 @@ function mlcols()
         echo $column
     done
 }
+
+
+# Script to reimport a database after first deleting the existing one
+#
+# $1 - the name of the database to use
+# $2 - the path to the file we are going to import
+#
+# Usage:
+#   reimportdb [database_name] [file_to_import]
+#
+function reimport()
+{
+    database="$1"
+    import_file="$2"
+
+    # check that they have given us a valid import file
+    if ! [ -e $import_file ]; then
+        echo "reimport: error: The import file you provided is not valid."
+        return 1
+    fi
+
+    mysql -e "DROP DATABASE $database" &> /dev/null
+
+    create_stmt="CREATE DATABASE $database DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;"
+
+    # we only care if the create fails. If the drop fails then it might just have
+    # not been there in the first place.
+    if ! mysql -e "$create_stmt" &> /dev/null; then
+        echo "reimport: error: Failed setting up initial database"
+        return 2
+    fi
+
+    if ! mysql "$database" < "$import_file" &> /dev/null; then
+        echo "reimport: error: Failed importing new database"
+        return 3
+    fi
+}
