@@ -84,7 +84,7 @@ alias sd='svn diff'
 alias sm='svn merge'
 
 # mysql aliases
-# For Reference: mysql_config_editor set --host=locahost --user=... --password
+# For Reference: mysql_config_editor set --host=localhost --user=... --password
 alias ml='mysql'
 alias mle='mysql -e'
 
