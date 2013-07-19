@@ -77,9 +77,9 @@ function mlcols()
 # $2 - the path to the file we are going to import
 #
 # Usage:
-#   reimportdb [database_name] [file_to_import]
+#   mlimport [database_name] [file_to_import]
 #
-function reimport()
+function mlimport()
 {
     database="$1"
     import_file="$2"
