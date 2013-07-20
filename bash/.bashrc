@@ -8,6 +8,7 @@
 # author: Ryan Kadwell <ryan@riaka.ca>
 
 export BACKUP_DIR="$HOME/.backups"
+export EDITOR="subl"
 
 if [ ! -e $BACKUP_DIR ]; then
     mkdir -p "$BACKUP_DIR"

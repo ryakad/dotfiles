@@ -16,7 +16,8 @@
 #
 function _mysql_database_complete()
 {
-    COMPREPLY=($(mysql -NBe "SHOW DATABASES;" | grep "^${COMP_WORDS[COMP_CWORD]}"))
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=( $(compgen -W "$(mysql -NBe "SHOW DATABASES;")" -- "$cur") )
     return 0
 }
 
@@ -34,13 +35,106 @@ complete -F _mysql_database_complete -o default reimport
 #
 function _symfony_complete()
 {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
     # Makes a couple assumptions. We assume that the symf alias is setup to
     # run the symfony console. We next assume that all command lines begin
     # with some spaces and that the only line we dont want begins with a [.
-    COMPREPLY=($(symf | grep "^  " | grep -v "^  \[" | cut -d " " -f3 | grep "^${COMP_WORDS[COMP_CWORD]}"))
+    COMPREPLY=( $(compgen -W "$(symf | grep "^  " | grep -v "^  \[" | cut -d" " -f3)" -- "$cur") )
     # Remove colon from word break characters.
     COMP_WORDBREAKS=${COMP_WORDBREAKS//:}
     return 0
 }
 
 complete -F _symfony_complete symf
+
+# Bash completion for Homebrew package manager,
+# http://mxcl.github.com/homebrew/
+
+# Get list of available formulae
+function _brew_formula()
+{
+    COMPREPLY=($(compgen -W "$(brew search)" -- "$1"))
+}
+
+# get list of all the currently installed formulae
+function _brew_formula_installed()
+{
+    COMPREPLY=($(compgen -W "$(brew list)" -- "$1"))
+}
+
+# completions for brew
+#
+# Usage:
+#   complete -F _brew_complete brew
+#
+function _brew_complete()
+{
+    COMPREPLY=()
+
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local prev="${COMP_WORDS[COMP_CWORD-1]}"
+    local opts="audit cat cleanup create deps doctor edit fetch home info install \
+    link list ln log man missing options outdated prune remove search server \
+    test uninstall unlink update upgrade uses versions which"
+
+    case "${prev}" in
+        search|update|home|edit)
+            _brew_formula "$cur"
+            return 0
+            ;;
+        uninstall)
+            _brew_formula_installed "$cur"
+            return 0
+            ;;
+        install)
+            if [[ "$cur" == -* ]]; then
+                COMPREPLY=( $(compgen -W '--HEAD --debug --interactive
+                    --verbose --ignore-dependencies' -- "$cur") )
+            else
+                _brew_formula "$cur"
+            fi
+            return 0
+            ;;
+        create)
+            if [[ "$cur" == -* ]]; then
+                COMPREPLY=( $(compgen -W '--macports' -- "$cur") )
+            fi
+            return 0
+            ;;
+        info)
+            if [[ "$cur" == -* ]]; then
+                COMPREPLY=( $(compgen -W '--github' -- "$cur") )
+            else
+                _brew_formula "$cur"
+            fi
+            return 0
+            ;;
+        list)
+            if [[ "$cur" == -* ]]; then
+                COMPREPLY=( $(compgen -W '--unbrewed' -- "$cur") )
+            else
+                _brew_formula_installed "$cur"
+            fi
+            return 0
+            ;;
+    esac
+
+    case "${prev}" in
+        # post-install, post-info
+        --debug|--interactive|--verbose|--ignore-dependencies|--github)
+            _brew_formula "$cur"
+            return 0
+            ;;
+        --unbrewed)
+            _brew_formula_installed "$cur"
+            return 0
+            ;;
+    esac
+
+    if [[ ${cur} == * ]]; then
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        return 0
+    fi
+}
+
+complete -F _brew_complete brew
