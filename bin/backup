@@ -1,0 +1,63 @@
+#!/bin/bash
+#
+# Dotfiles
+# Copyright (c) Ryan Kadwell <ryan@riaka.ca>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# Simple Bash Backup Script
+#
+# $1 - The directory we want to backup
+# $2 - An identifier to use when naming the backup. Will be named as:
+#      DATE.IDENTIFIER.tar.gz
+#
+# Enviromental Variables:
+#   $BACKUP_DIR - The path to save backups
+#
+# Usage:
+#   backup [path_to_backup]
+#
+# author: Ryan Kadwell <ryan@riaka.ca>
+#
+
+needs_backup=$1
+identifier=$2
+
+# removes trailing slash from a path.
+function clean_path()
+{
+    echo "${1}" | sed 's#/*$##'
+}
+
+echo -e "\nbash backup\nversion 0.1-beta\n"
+
+needs_backup=$(clean_path "$needs_backup")
+if [ -z "$needs_backup" ]; then
+    echo "backup: usage: backup [directory_to_backup]"
+    exit 1
+elif [ ! -d "$needs_backup" ]; then
+    echo "backup: invalid path: $needs_backup"
+    exit 2
+# TODO: check recursively if we have access to everything below this point
+elif [ ! -r "$needs_backup" ]; then
+    echo "backup: permission denied: $needs_backup"
+    exit 3
+fi
+
+# clean up directory paths. You will not be able to back up the root
+# directory.
+BACKUP_DIR=$(clean_path "$BACKUP_DIR")
+
+if [ -z "$BACKUP_DIR" ]; then
+    echo "backup: warning: Enviroment variable \$BACKUP_DIR is not set!"
+    echo "saving to $HOME instead."
+    BACKUP_DIR=$HOME
+fi
+
+backup_name="$(date +%Y-%m-%d-%H-%M-%S).${identifier}.tar.gz"
+
+eval "tar -czpf $BACKUP_DIR/$backup_name $needs_backup >&2"
+
+echo -e "\ndone!"
+echo "Backup has been saved to: $BACKUP_DIR/$backup_name"
