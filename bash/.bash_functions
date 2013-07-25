@@ -106,3 +106,29 @@ function mlimport()
         return 3
     fi
 }
+
+# Safe rm
+#
+# Recursively removes files from a given directory but tells you what it
+# will be removign BEFORE it does.
+#
+# $1 - The directory/file you want to remove
+#
+function srm()
+{
+    if [ ! -e "$1" ]; then
+        echo "srm: error: Invalid Path"
+        return 2
+    fi
+
+    find "$1"
+    echo -ne "\nAre you sure [y/n]? " && read -r user_response
+    if [[ $user_response == "y" ]]; then
+        # dont use my verbose alias
+        command rm -Rf "$1"
+        return 0
+    fi
+
+    echo "srm: Aborted!"
+    return 1
+}
