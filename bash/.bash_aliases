@@ -74,6 +74,7 @@ alias gmm='git merge origin/master'
 alias gp='git push'
 alias gpo='git push -u origin'
 alias grm='git rebase origin/master'
+alias gls="git ls-tree -r $(git rev-parse --abbrev-ref HEAD) --name-only"
 
 # svn aliases
 alias s='svn status'
