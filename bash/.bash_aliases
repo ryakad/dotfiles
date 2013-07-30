@@ -39,7 +39,7 @@ alias symf="php app/console"
 
 # arduino ino aliases
 alias ib="ino build"
-alias id="ino deploy"
+alias iu="ino upload"
 
 # r aliases
 alias r="R CMD BATCH"
