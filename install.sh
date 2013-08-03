@@ -40,6 +40,7 @@ function move_files()
 move_files "./bash" "$HOME"
 move_files "./git" "$HOME"
 move_files "./osx" "$HOME"
+move_files "./ghc" "$HOME"
 
 # For installing sublime config files need to go in different locations
 # depending on operating system.
