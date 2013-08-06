@@ -23,6 +23,8 @@ if [ $(uname) = "Linux" ]; then
     alias ls="ls --color=auto"
 fi
 
+alias grep="grep --color=auto"
+
 # cd
 alias -- -="cd -"
 alias ..='cd ..'
