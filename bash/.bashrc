@@ -10,6 +10,8 @@
 export BACKUP_DIR="$HOME/.backups"
 export EDITOR="subl"
 
+export GREP_COLOR=36
+
 if [ ! -e $BACKUP_DIR ]; then
     mkdir -p "$BACKUP_DIR"
 fi
