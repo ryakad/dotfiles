@@ -15,12 +15,14 @@ alias rm="rm -v"
 alias x="tar -xzvf"
 
 # ls aliases
-alias la='ls -lahG'
-alias l='ls -lhG'
+alias la='ls -lah'
+alias l='ls -lh'
 alias l1='ls -1'
 
 if [ $(uname) = "Linux" ]; then
     alias ls="ls --color=auto"
+else
+    alias ls="ls -G"
 fi
 
 alias grep="grep --color=auto"
