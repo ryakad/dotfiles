@@ -13,6 +13,7 @@ export EDITOR="subl"
 
 export GREP_COLOR=36
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
+export MYSQL_PS1="\u \d $ "
 
 if [ ! -e $BACKUP_DIR ]; then
     mkdir -p "$BACKUP_DIR"
