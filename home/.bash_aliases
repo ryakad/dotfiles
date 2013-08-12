@@ -13,6 +13,8 @@ alias k="clear"
 alias o='open'
 alias rm="rm -v"
 alias x="tar -xzvf"
+alias grep="grep --color=auto"
+alias diff="diff -u" # use unified diff format
 
 # ls aliases
 alias la='ls -lah'
@@ -25,7 +27,6 @@ else
     alias ls="ls -G"
 fi
 
-alias grep="grep --color=auto"
 
 # cd
 alias -- -="cd -"
@@ -47,7 +48,6 @@ alias iu="ino upload"
 
 # r aliases
 alias r="R CMD BATCH"
-
 
 # tree
 if [ ! -x "$(which tree 2>/dev/null)" ]; then
