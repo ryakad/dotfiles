@@ -3,3 +3,4 @@ default_message:
 
 install:
 	./install.sh
+
