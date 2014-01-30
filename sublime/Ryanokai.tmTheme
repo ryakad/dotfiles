@@ -30,7 +30,7 @@
         <key>selectionForeground</key>
         <string>#444</string>
         <key>guide</key>
-        <string>#2f2f2f</string>
+        <string>#2e2e2e</string>
       </dict>
     </dict>
     <dict>
@@ -43,7 +43,7 @@
         <key>fontStyle</key>
         <string>italic</string>
         <key>foreground</key>
-        <string>#666</string>
+        <string>#494949</string>
       </dict>
     </dict>
     <dict>
