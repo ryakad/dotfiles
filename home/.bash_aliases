@@ -100,4 +100,4 @@ alias mle='mysql -e'
 alias py='python'
 
 # alias for finding public ip address
-alias myip="curl http://ipecho.net/plain; echo"
+alias myip="curl ifconfig.me"
