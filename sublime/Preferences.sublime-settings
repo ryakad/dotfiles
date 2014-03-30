@@ -7,6 +7,7 @@
    "font_size": 11,
    "highlight_line": true,
    "highlight_modified_tabs": true,
+   "save_on_focus_lost": true,
    "ignored_packages":
    [
       "Vintage"
