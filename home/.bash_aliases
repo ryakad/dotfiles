@@ -98,3 +98,6 @@ alias mle='mysql -e'
 
 # python aliases
 alias py='python'
+
+# alias for finding public ip address
+alias myip="curl ifconfig.me"
