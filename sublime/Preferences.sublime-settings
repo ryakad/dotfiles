@@ -20,10 +20,8 @@
       120
    ],
    "scroll_past_end": true,
-   "soda_classic_tabs": true,
-   "soda_folder_icons": true,
    "tab_size": 3,
-   "theme": "Soda Dark.sublime-theme",
+   "theme": "Centurion.sublime-theme",
    "translate_tabs_to_spaces": true,
    "trim_automatic_white_space": true,
    "trim_trailing_white_space_on_save": true,
