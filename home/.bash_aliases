@@ -16,7 +16,7 @@ alias x="tar -xzvf"
 alias grep="grep --color=auto"
 alias diff="diff -u" # use unified diff format
 
-alias m="make"
+alias m="mutt"
 alias t="make test"
 
 # ls aliases
