@@ -21,13 +21,13 @@ You will then need to install the dotfiles repo:
 
 ```bash
 git clone https://github.com/ryakad/dotfiles && cd dotfiles
-make install
+./install.sh
 ```
 
 You can now either close and reopen your terminal for the changes to take
 effect or you can simply source your ~/.bashrc manually with `. ~/.bashrc`
 
-> Note: Running `make install` will backup any existing files to
+> Note: Running `./install.sh` will backup any existing files to
 > ~/.dotfile_backup. If you run the install often you may want to
 > clean that directory from time to time.
 

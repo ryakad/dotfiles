@@ -52,6 +52,9 @@ else
     echo "Can not find sublime\'s user package."
 fi
 
-if [ ! -z "$sublime_conf" ]; then
-    move_files "./sublime" "$sublime_conf"
+if [ ! -z "$sublime_conf" ]
+then
+    # Don't do this every time.
+    # TODO: Add a switch in the makefile for this
+    # move_files "./sublime" "$sublime_conf"
 fi
