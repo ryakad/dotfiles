@@ -27,4 +27,6 @@
   "trim_trailing_white_space_on_save": true,
   "use_simple_full_screen": true,
   "folder_exclude_patterns": [],
+  "wrap_width": 80,
+  "word_wrap": true
 }
