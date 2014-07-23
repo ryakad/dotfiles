@@ -13,12 +13,7 @@
     "Vintage"
   ],
   "margin": -5,
-  "rulers":
-  [
-    76,
-    80,
-    120
-  ],
+  "rulers": [ 76, 80 ],
   "scroll_past_end": true,
   "tab_size": 3,
   "theme": "Centurion.sublime-theme",
